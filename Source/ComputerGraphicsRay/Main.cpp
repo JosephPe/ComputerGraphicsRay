@@ -1,10 +1,14 @@
 #include "Renderer.h"
+#include "Color.h"
+#include "Random.h"
 #include <iostream>
 
 
 int main(int argc, char* argv[])
 {
 	std::cout << "Hello world! \n";
+
+	seedRandom( uint16_t(time(nullptr)));
 
 	Renderer* renderer = new Renderer;
 

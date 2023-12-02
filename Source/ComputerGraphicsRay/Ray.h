@@ -11,6 +11,6 @@ struct ray_t
 
 	glm::vec3 GetPoint(float distance) const { return origin + (direction * distance); }
 
-	glm::vec3 origin{ 0 };
-	glm::vec3 direction{ 0 };
+	glm::vec3 origin;
+	glm::vec3 direction;
 };
