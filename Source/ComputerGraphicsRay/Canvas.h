@@ -3,22 +3,20 @@
 #include <SDL.h>
 #include <vector>
 
-class Renderer;
-
 class Canvas
 {
+    class Renderer;
+    struct SDL_Texture;
 public:
     Canvas(int width, int height, const Renderer& renderer);
     ~Canvas();
 
     void Update();
-    void Draw(const Renderer& renderer);
 
-    void Clear(const color4& color);
-    void DrawPoint(const glm::ivec2& point, const color4 color);
+    void Clear(const color4_t& color);
+    void DrawPoint(const glm::ivec2& point, const color4_t color);
 
-    inline int GetWidth() const { return m_width; }
-    inline int GetHeight() const { return m_height; }
+	glm::ivec2 GetSize() const { return m_size; }
 
     friend class Renderer;
 
@@ -26,6 +24,5 @@ private:
     SDL_Texture* m_texture{ nullptr };
     std::vector<rgba_t> m_buffer;
 
-    int m_width = 0;
-    int m_height = 0;
+    glm::ivec2 m_size{ 0 };
 };
